@@ -6,7 +6,7 @@ $stmt = $pdo->prepare("INSERT INTO products (name, price, article) VALUES (:name
 $stmt->execute([
     'name' => $_POST['name'],
     'price' => $_POST['price'],
-    'article' => $_POST['article']
+    'article' => empty($_POST['article']) ? time() . mt_rand() : $_POST['article']
 ]);
 
 header('Location: /products/');

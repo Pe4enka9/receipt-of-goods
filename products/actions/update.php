@@ -6,7 +6,7 @@ $stmt = $pdo->prepare("UPDATE products SET name = :name, price = :price, article
 $stmt->execute([
     'name' => $_POST['name'],
     'price' => $_POST['price'],
-    'article' => $_POST['article'],
+    'article' => empty($_POST['article']) ? time() . mt_rand() : $_POST['article'],
     'id' => $_POST['id']
 ]);
 
