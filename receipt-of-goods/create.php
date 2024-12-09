@@ -28,7 +28,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
                     <input type="number" name="amount" id="amount" class="form-control">
                 </div>
 
-                <input type="submit" class="btn btn-success" value="Добавить">
+                <input type="submit" class="btn btn-success" id="add" value="Добавить">
             </form>
         </div>
     </div>

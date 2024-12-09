@@ -14,8 +14,8 @@ JOIN products ON receipt_of_goods.product_id = products.id")->fetchAll();
 
 <div class="container mt-3">
     <h1 class="text-primary mb-3"><?= $title ?></h1>
-    <a href="/products/" class="btn btn-outline-secondary mb-3">Товары</a>
-    <a href="/receipt-of-goods/create.php" class="btn btn-primary mb-3">Добавить поступление</a>
+    <a href="/products/" class="btn btn-outline-secondary mb-3" id="products">Товары</a>
+    <a href="/receipt-of-goods/create.php" class="btn btn-primary mb-3" id="add_receipt">Добавить поступление</a>
 
     <table class="table table-striped">
         <thead>
@@ -35,11 +35,11 @@ JOIN products ON receipt_of_goods.product_id = products.id")->fetchAll();
                 <td><?= $receiptOfGood['amount'] ?></td>
                 <td>
                     <a href="/receipt-of-goods/edit.php?id=<?= $receiptOfGood['id'] ?>"
-                       class="btn btn-primary">Изменить</a>
+                       class="btn btn-primary" id="edit_receipt">Изменить</a>
                 </td>
                 <td>
                     <a href="/receipt-of-goods/actions/delete.php?id=<?= $receiptOfGood['id'] ?>"
-                       class="btn btn-danger">Удалить</a>
+                       class="btn btn-danger" id="delete_receipt">Удалить</a>
                 </td>
             </tr>
         <?php endforeach; ?>
