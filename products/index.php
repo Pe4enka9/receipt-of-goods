@@ -24,12 +24,13 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
             <tbody>
             <?php foreach ($products as $product): ?>
                 <tr>
-                    <td><?= $product['id'] ?></td>
+                    <th><?= $product['id'] ?></th>
                     <td><?= $product['name'] ?></td>
                     <td><?= $product['price'] ?></td>
                     <td><?= $product['article'] ?></td>
                     <td><a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary">Изменить</a></td>
-                    <td><a href="/products/actions/delete.php?id=<?= $product['id'] ?>" class="btn btn-danger">Удалить</a></td>
+                    <td><a href="/products/actions/delete.php?id=<?= $product['id'] ?>"
+                           class="btn btn-danger">Удалить</a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
