@@ -10,6 +10,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
 
     <div class="container mt-3">
         <h1 class="text-primary mb-3"><?= $title ?></h1>
+        <a href="/" class="btn btn-outline-secondary mb-3">Назад</a>
         <a href="/products/create.php" class="btn btn-primary mb-3">Добавить товар</a>
 
         <table class="table table-striped">

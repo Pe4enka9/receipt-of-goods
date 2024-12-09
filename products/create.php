@@ -10,13 +10,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
         <div class="col-4">
             <form action="/products/actions/store.php" method="post">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Название</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <label for="name" class="form-label">Название <span class="text-danger">*</span></label>
+                    <input type="text" name="name" class="form-control" id="name" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Цена</label>
-                    <input type="number" name="price" class="form-control" id="price">
+                    <label for="price" class="form-label">Цена <span class="text-danger">*</span></label>
+                    <input type="number" name="price" class="form-control" id="price" required>
                 </div>
 
                 <div class="mb-3">

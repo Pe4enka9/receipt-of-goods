@@ -19,13 +19,15 @@ $product = $stmt->fetch();
                 <input type="hidden" name="id" value="<?= $product['id'] ?>">
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Название</label>
-                    <input type="text" name="name" class="form-control" id="name" value="<?= $product['name'] ?>">
+                    <label for="name" class="form-label">Название <span class="text-danger">*</span></label>
+                    <input type="text" name="name" class="form-control" id="name" value="<?= $product['name'] ?>"
+                           required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Цена</label>
-                    <input type="number" name="price" class="form-control" id="price" value="<?= $product['price'] ?>">
+                    <label for="price" class="form-label">Цена <span class="text-danger">*</span></label>
+                    <input type="number" name="price" class="form-control" id="price" value="<?= $product['price'] ?>"
+                           required>
                 </div>
 
                 <div class="mb-3">

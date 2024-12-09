@@ -14,8 +14,8 @@ JOIN products ON receipt_of_goods.product_id = products.id")->fetchAll();
 
 <div class="container mt-3">
     <h1 class="text-primary mb-3"><?= $title ?></h1>
-    <a href="/receipt-of-goods/create.php" class="btn btn-primary mb-3">Добавить поступление</a>
     <a href="/products/" class="btn btn-outline-secondary mb-3">Товары</a>
+    <a href="/receipt-of-goods/create.php" class="btn btn-primary mb-3">Добавить поступление</a>
 
     <table class="table table-striped">
         <thead>
