@@ -21,7 +21,7 @@ $receiptOfGood = $stmt->fetch();
                 <input type="hidden" name="id" value="<?= $receiptOfGood['id'] ?>">
 
                 <div class="mb-3">
-                    <label for="product_id" class="form-label">Товар</label>
+                    <label for="product_id" class="form-label">Товар <span class="text-danger">*</span></label>
                     <select name="product_id" id="product_id" class="form-select">
                         <?php foreach ($products as $product): ?>
                             <option value="<?= $product['id'] ?>"
@@ -33,9 +33,9 @@ $receiptOfGood = $stmt->fetch();
                 </div>
 
                 <div class="mb-3">
-                    <label for="amount" class="form-label">Количество</label>
+                    <label for="amount" class="form-label">Количество <span class="text-danger">*</span></label>
                     <input type="number" name="amount" id="amount" class="form-control"
-                           value="<?= $receiptOfGood['amount'] ?>">
+                           value="<?= $receiptOfGood['amount'] ?>" required>
                 </div>
 
                 <input type="submit" class="btn btn-success" id="edit" value="Изменить">
