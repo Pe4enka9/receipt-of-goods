@@ -29,6 +29,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
                     <td><?= $product['price'] ?></td>
                     <td><?= $product['article'] ?></td>
                     <td><a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary">Изменить</a></td>
+                    <td><a href="/products/actions/delete.php?id=<?= $product['id'] ?>" class="btn btn-danger">Удалить</a></td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
