@@ -36,7 +36,7 @@ $product = $stmt->fetch();
                            value="<?= $product['article'] ?>">
                 </div>
 
-                <input type="submit" class="btn btn-success" value="Изменить">
+                <input type="submit" class="btn btn-success" id="edit" value="Изменить">
             </form>
         </div>
     </div>

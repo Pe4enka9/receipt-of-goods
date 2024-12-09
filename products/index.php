@@ -11,7 +11,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
     <div class="container mt-3">
         <h1 class="text-primary mb-3"><?= $title ?></h1>
         <a href="/" class="btn btn-outline-secondary mb-3">Назад</a>
-        <a href="/products/create.php" class="btn btn-primary mb-3">Добавить товар</a>
+        <a href="/products/create.php" class="btn btn-primary mb-3" id="add_product">Добавить товар</a>
 
         <table class="table table-striped">
             <thead>
@@ -29,9 +29,13 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
                     <td><?= $product['name'] ?></td>
                     <td><?= $product['price'] ?></td>
                     <td><?= $product['article'] ?></td>
-                    <td><a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary">Изменить</a></td>
-                    <td><a href="/products/actions/delete.php?id=<?= $product['id'] ?>"
-                           class="btn btn-danger">Удалить</a></td>
+                    <td>
+                        <a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary" id="edit_product">Изменить</a>
+                    </td>
+                    <td>
+                        <a href="/products/actions/delete.php?id=<?= $product['id'] ?>"
+                           class="btn btn-danger" id="delete_product">Удалить</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

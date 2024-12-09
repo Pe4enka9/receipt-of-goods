@@ -24,7 +24,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
                     <input type="text" name="article" class="form-control" id="article">
                 </div>
 
-                <input type="submit" class="btn btn-success" value="Добавить">
+                <input type="submit" class="btn btn-success" id="add" value="Добавить">
             </form>
         </div>
     </div>
