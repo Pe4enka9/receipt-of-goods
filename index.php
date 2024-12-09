@@ -33,8 +33,13 @@ JOIN products ON receipt_of_goods.product_id = products.id")->fetchAll();
                 <td><?= $receiptOfGood['product_name'] ?></td>
                 <td><?= $receiptOfGood['date'] ?></td>
                 <td><?= $receiptOfGood['amount'] ?></td>
-                <td><a href="/receipt-of-goods/edit.php?id=<?= $receiptOfGood['id'] ?>"
+                <td>
+                    <a href="/receipt-of-goods/edit.php?id=<?= $receiptOfGood['id'] ?>"
                        class="btn btn-primary">Изменить</a>
+                </td>
+                <td>
+                    <a href="/receipt-of-goods/actions/delete.php?id=<?= $receiptOfGood['id'] ?>"
+                       class="btn btn-danger">Удалить</a>
                 </td>
             </tr>
         <?php endforeach; ?>
