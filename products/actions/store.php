@@ -9,4 +9,4 @@ $stmt->execute([
     'article' => empty($_POST['article']) ? time() . mt_rand() : $_POST['article']
 ]);
 
-header('Location: /products/');
+header('Location: /');

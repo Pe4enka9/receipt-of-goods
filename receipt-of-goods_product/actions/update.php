@@ -9,4 +9,4 @@ $stmt->execute([
     'id' => $_POST['id']
 ]);
 
-header('Location: /receipt-of-goods');
+header('Location: /products/details.php?article=' . $_POST['article']);

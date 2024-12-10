@@ -10,4 +10,4 @@ $stmt->execute([
     'id' => $_POST['id']
 ]);
 
-header('Location: /products/');
+header('Location: /');

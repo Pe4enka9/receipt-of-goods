@@ -1,51 +1,47 @@
 <?php
-$title = 'Поступление товара';
+$title = 'Товары';
 include $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 
 /** @var PDO $pdo */
 $pdo = require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 
-$receiptOfGoods = $pdo->query("SELECT
-receipt_of_goods.*,
-products.name AS product_name
-FROM receipt_of_goods
-JOIN products ON receipt_of_goods.product_id = products.id")->fetchAll();
+$products = $pdo->query("SELECT * FROM products")->fetchAll();
 ?>
 
-<div class="container mt-3">
-    <h1 class="text-primary mb-3"><?= $title ?></h1>
-    <a href="/products/" class="btn btn-outline-secondary mb-3" id="products">Товары</a>
-    <a href="/receipt-of-goods/create.php" class="btn btn-primary mb-3" id="add_receipt">Добавить поступление</a>
+    <div class="container mt-3">
+        <h1 class="text-primary mb-3"><?= $title ?></h1>
+        <a href="/receipt-of-goods" class="btn btn-outline-secondary mb-3">Поступления товаров</a>
+        <a href="/products/create.php" class="btn btn-primary mb-3" id="add_product">Добавить товар</a>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Название товара</th>
-            <th>Дата и время</th>
-            <th>Количество</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($receiptOfGoods as $receiptOfGood): ?>
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <th><?= $receiptOfGood['id'] ?></th>
-                <td><?= $receiptOfGood['product_name'] ?></td>
-                <td><?= $receiptOfGood['date'] ?></td>
-                <td><?= $receiptOfGood['amount'] ?></td>
-                <td>
-                    <a href="/receipt-of-goods/edit.php?id=<?= $receiptOfGood['id'] ?>"
-                       class="btn btn-primary" id="edit_receipt">Изменить</a>
-                </td>
-                <td>
-                    <a href="/receipt-of-goods/actions/delete.php?id=<?= $receiptOfGood['id'] ?>"
-                       class="btn btn-danger" id="delete_receipt">Удалить</a>
-                </td>
+                <th>#</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Артикул</th>
             </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
+                    <th><?= $product['id'] ?></th>
+                    <td><?= $product['name'] ?></td>
+                    <td><?= $product['price'] ?></td>
+                    <td><?= $product['article'] ?></td>
+                    <td><a href="/products/details.php?article=<?= $product['article'] ?>" class="btn btn-info">Подробнее</a></td>
+                    <td>
+                        <a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary" id="edit_product">Изменить</a>
+                    </td>
+                    <td>
+                        <a href="/products/actions/delete.php?id=<?= $product['id'] ?>"
+                           class="btn btn-danger" id="delete_product">Удалить</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/layouts/footer.php';

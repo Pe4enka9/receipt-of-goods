@@ -8,4 +8,4 @@ $stmt->execute([
     'amount' => $_POST['amount']
 ]);
 
-header('Location: /receipt-of-goods');
+header('Location: /products/details.php?article=' . $_POST['article']);

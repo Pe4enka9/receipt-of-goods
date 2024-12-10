@@ -5,4 +5,4 @@ $pdo = require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 $stmt = $pdo->prepare("DELETE FROM receipt_of_goods WHERE id = ?");
 $stmt->execute([$_GET['id'] ?? '']);
 
-header('Location: /receipt-of-goods');
+header('Location: /products/details.php?article=' . $_GET['article']);
