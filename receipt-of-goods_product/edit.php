@@ -39,6 +39,11 @@ $receiptOfGood = $stmt->fetch();
                            value="<?= $receiptOfGood['amount'] ?>" required>
                 </div>
 
+                <div class="mb-3">
+                    <label for="date" class="form-label">Дата <span class="text-danger">*</span></label>
+                    <input type="date" name="date" id="date" class="form-control" required>
+                </div>
+
                 <input type="submit" class="btn btn-success" id="edit" value="Изменить">
             </form>
         </div>

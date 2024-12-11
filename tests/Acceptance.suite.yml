@@ -6,8 +6,12 @@
 actor: AcceptanceTester
 modules:
     enabled:
-        - PhpBrowser:
-              url: https://receipt-of-goods
+    - WebDriver:
+          browser: chrome
+          url: 'http://localhost/'
+          window_size: 2000x1000
+          port: 9515
+          host: host.docker.internal
 # Add Codeception\Step\Retry trait to AcceptanceTester to enable retries
 step_decorators:
     - Codeception\Step\ConditionalAssertion

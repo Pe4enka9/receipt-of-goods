@@ -5,7 +5,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/layouts/header.php';
 /** @var PDO $pdo */
 $pdo = require_once $_SERVER['DOCUMENT_ROOT'] . '/db.php';
 
-$products = $pdo->query("SELECT * FROM products")->fetchAll();
+$products = $pdo->query("SELECT
+products.*,
+SUM(receipt_of_goods.amount) AS amount
+FROM products
+LEFT JOIN receipt_of_goods ON products.id = receipt_of_goods.product_id
+GROUP BY products.id")->fetchAll();
 ?>
 
     <div class="container mt-3">
@@ -20,6 +25,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
                 <th>Название</th>
                 <th>Цена</th>
                 <th>Артикул</th>
+                <th>Количество</th>
             </tr>
             </thead>
             <tbody>
@@ -29,6 +35,7 @@ $products = $pdo->query("SELECT * FROM products")->fetchAll();
                     <td><?= $product['name'] ?></td>
                     <td><?= $product['price'] ?></td>
                     <td><?= $product['article'] ?></td>
+                    <td><?= is_null($product['amount']) ? '0' : $product['amount'] ?></td>
                     <td><a href="/products/details.php?article=<?= $product['article'] ?>" class="btn btn-info">Подробнее</a></td>
                     <td>
                         <a href="/products/edit.php?id=<?= $product['id'] ?>" class="btn btn-primary" id="edit_product">Изменить</a>

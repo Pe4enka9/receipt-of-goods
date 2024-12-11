@@ -43,9 +43,11 @@ class ReceiptOfGoodsCRUDCest
         $I->click('#add_receipt');
         $I->selectOption('#product_id', 'test_edit');
         $I->fillField('#amount', '500');
+        $I->fillField('date', '12122024');
         $I->click('#add');
         $I->canSee('test_edit');
         $I->canSee('500');
+        $I->canSee('12.12.2024 00:00:00');
     }
 
     public function update(AcceptanceTester $I)
@@ -54,9 +56,11 @@ class ReceiptOfGoodsCRUDCest
         $I->amOnPage('/receipt-of-goods');
         $I->click('#edit_receipt');
         $I->fillField('#amount', '1000');
+        $I->fillField('date', '01012024');
         $I->click('#edit');
         $I->canSee('test_edit');
         $I->canSee('1000');
+        $I->canSee('01.01.2024 00:00:00');
     }
 
     public function delete(AcceptanceTester $I)
@@ -75,5 +79,6 @@ class ReceiptOfGoodsCRUDCest
         $I->click('#delete_product');
         $I->dontSee('test_edit');
         $I->dontSee('200');
+        $I->dontSee('01.01.2024 00:00:00');
     }
 }
